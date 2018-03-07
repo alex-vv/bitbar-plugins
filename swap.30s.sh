@@ -10,4 +10,5 @@
 # <bitbar.desc>Display swap size</bitbar.desc>
 
 output=$(sysctl vm.swapusage)
+array=$(output)
 echo "${array[6]}"
