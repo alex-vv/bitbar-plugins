@@ -10,5 +10,7 @@
 # <bitbar.desc>Display swap size</bitbar.desc>
 
 output=$(sysctl vm.swapusage)
-array=$(output)
-echo "${array[6]}"
+array=($output)
+vm=${array[6]%M}
+size=$(echo "scale=1; $vm/1024" | bc)
+echo "${size}G | size=9 font=Tahoma"
