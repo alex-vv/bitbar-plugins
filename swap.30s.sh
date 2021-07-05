@@ -12,5 +12,5 @@
 output=$(sysctl vm.swapusage)
 array=($output)
 vm=${array[6]%M}
-size=$(echo "scale=1; $vm/1024" | bc)
+size=$(echo "scale=1; x=$vm/1024; if (x<1) print 0; x" | bc)
 echo "${size}G | size=9 font=Tahoma"
